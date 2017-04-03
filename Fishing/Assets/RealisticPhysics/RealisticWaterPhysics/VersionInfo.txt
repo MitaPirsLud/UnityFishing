@@ -1,0 +1,131 @@
+Realistic Water Physics
+
+Current version: 2.2
+Last update: 9/4/16
+Tested it on unity version: 5.4.0f3 Personal.
+
+Version 2.2.1 (Hotfix)
+[Bugs]
+(-) Removed bug where water level option was not saved!
+
+Version 2.2:
+[General]
+(^) The ExternalWaterLevelManager can now be found as a component at "RealisticPhysics/RealisticWaterPhysics/ExternalWaterLevelManager"
+(+) Added public call on RealisticBouyancy, isInWater() will return true if any of the checking points are hitting the water.
+(^) Fixed some issues with the volume calculations, its still not perfect is some situations. Its still the best with a mesh or box collider and mesh filter!
+(+) improved some code to handle more items at once.
+(+) Added RealisticRiverFlow script and can be found at "RealisticPhysics/RealisticWaterPhysics/RealisticRiverFlow"
+
+[Window]
+(+) Added a small logo
+(^) Fixed small issue of Floating quallity not updating correctly when importing data from existing gameobject.
+(^) Fixed issues where enableing support not always works.
+(^) Fixed water level not updating correctly on some settings.
+(^) Fixed some text showing incorrectly.
+
+[RealisticBouyancy script]
+(+) Added bit of code so objects that have the RigedBody isKinematic set to true will not run the buoyancy script.
+(+) Added better support for other systems.
+(^) Fixed and improved a few things
+(+) Added new script interface for a nicer look.
+
+[Support]
+(+) Added AQUAS Water Lite support
+(+) Added AQUAS Water/River Set support
+(+) Added PlayWay Water System Support
+(+) Added Dynamic Water System support
+
+[Bugs]
+(+) Disable and reinable a collider on start() will stop the setup and show incorrect behavior
+(+) Does not always work on a model where its point of center is not inside its model.
+(+) Scaling objects in-run time even with heavy edits on will not work right.
+
+
+
+Version 2.1:
+
+[General]
+(^) Moved folder to "RealisticPhysics/RealisticWaterPhysics"
+(^) the ExternalWaterLevelManager can now be found as a component at "RealisticWater/RealisticWaterPhysics/ExternalWaterLevelManager"
+(^) Fixed Volume calculation bug.
+(+) Fixed manager from resetting if there are 2 scenes loaded into one.
+
+[RealisticBouyancy script]
+(^) Fixed bug where objects without meshfilters where not calculated correctly.
+(+) Added movePosition() works the same as RigidBody.movePosition, only it will not flip the object over.
+(+) Code cleanup
+
+[manager Window]
+(^) Fixed bug where water level did not update if window was closed, if water level was set as game object.
+
+
+
+Version 2.0:
+
+[Tested]
+(+) Tested on Windows 7 PC
+(+) Tested on Web Player
+(+) Tested on Xbox One
+
+[General]
+(+) Contains 16 Liquid Materials.
+(+) Contains 22 Gas Materials.
+(+) Contains 55 Solid Materials.
+(+) All changes in the windows at runtime will now be saved if you stop runtime.
+(+) All changes in the window to a object will now we instantly applyed, but not saved after you stop runtime!
+(+) Added a 'Show advanced options/info' button.
+
+[setup]
+(+) You can now use all Liquid Materials as water.
+(+) You can now use all Gas Materials as Air.
+(+) You can set the water level to be a gameobject, and this will update in runtime.
+(+) You can now see the density of water and air in the window.
+(+) Added option to use external water management.
+
+[setup GameObjects]
+(-) removed the select gameobject option.
+(+) Added option to click them from the hierarchy, or project.
+(+) Aded multi-object select support!
+(+) Added Floating Quality option
+(+) Added advanced option to select material Type (Liquid, Gas or Solid)
+(-) Removed Terminal velocity option, cause issue with the physics engine.
+
+[Manage gameObjects]
+(+) Same as the setup, but will automaticly search trough your hierarchy to filter out gameobjects with a existing setup.
+
+[RealisticBouyancy script]
+(-) Removed a lot of useless code.
+(+) Added option 'Light Run Time Edits' This allows you to edit the setting while in runtime.
+(+) Added option 'Light Run Time Edits' This allows you to edit all the setting while in runtime.
+(+) Added some public functions for you to use, to change the object at runetime.
+(+) Improved intire system it will now run the script in just 0.00001 second, and no GarbageCollection anymore!
+
+[other]
+(+)Extra check if Ceto Ocean system is enabled but ocean not found. This will make the object state 'disabled'
+	And the following message will be displayed: '[Realistic Water Physics] Ceto support enabled but missing Ocean!'
+(+)Changed the layout of the setup window, added more info.
+(+)Window will now repaint 10 times a second to keep the info up-to-date
+(+)Added new unit of Tempeture! you can now use Celsius or Fahrenheit, the window will calculate it for you.
+(+)Added a check if mesh is there or not, if not it will be using a collider to calculate its volume, it that is also not found the system can not work and a message will show:
+	'There is no MeshFilter or Collider on this object!'
+(+)Improved the speed of the script.
+(+)Added check to see if the selected object was created with advanced options enabled, toggling it on if so.
+(-)Removed the option to set water/air Tempeture!, the changes will be so small
+(+)Added check to see if the manager contains the script, if not it will stop the window and report errors.
+(+)Added support for DynamicWaterSystem Same setup as for Ceto, but add DW to the 'Scriping Define Symbols'
+	This suport will allow you to use Realistic water Physics as a base, and have the buoyancy be handeld by the DynamicWaterSystem 
+	(Note: Its still in development!)
+
+[Examples]
+(+) Added the 'ExternalWaterLevelManager' example script
+	This allows you to have some basic moving water.
+=============================================================================================
+Known issues:
+(+)changing the settings on a objects using the manager thats also a prefab will not overwrite prefab settins.
+	You need to break the instance!
+(+)Hiding the advanced settings sometimes ignores later changes on some settings.
+=============================================================================================
+
+Version 2.3 Plans:
+- Better material management.
+- Aquas support comming soon!
